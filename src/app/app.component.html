@@ -8,11 +8,139 @@
 </mat-toolbar>
 
 
-<mat-tab-group>
+
+
+<form>
+
+
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select>
+      <mat-option value="">---Select---</mat-option>
+      <mat-option value="Angular">Angular</mat-option>
+      <mat-option value="React">React</mat-option>
+      <mat-option value="Vue">Vue</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Auto Complete</mat-label>
+    <input type="text" matInput [matAutocomplete]="auto" [formControl]="myForm">
+    <!-- More concern about this => [displayWith]="displayOption" function sign must be avoid  -->
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filterOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [matDatepicker]="datePicker">
+    <mat-datepicker-toggle [for]="datePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #datePicker startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+  
+ 
+</form>
+
+<div>
+    <button mat-button (click)="OpenSnackbar('Hello, it worked !','Close')">Show Snack </button>
+</div>
+
+<div>
+    <button mat-button (click)="OpenCustomSnackBarComponent('Hello, Custom worked !','Close')">Show Snack </button>
+</div>
+
+<!-- <mat-vertical-stepper>
+    <mat-step label="Info">
+      <p>
+        How can I use a form of different component in mat-stepper?
+        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+      </p>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Address">
+      <p>
+          How can I use a form of different component in mat-stepper?
+          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+        </p>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+    <mat-step label="Billing">
+      <p>
+          How can I use a form of different component in mat-stepper?
+          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+        </p>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>  </mat-step>
+    <mat-step label="Confirm">
+      <p>
+          How can I use a form of different component in mat-stepper?
+          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+        </p>
+        <div>
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-raised-button>Confirm</button>
+        </div>  </mat-step>
+  
+  </mat-vertical-stepper> -->
+
+<!-- <mat-horizontal-stepper>
+  <mat-step label="Info">
+    <p>
+      How can I use a form of different component in mat-stepper?
+      For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+    </p>
+    <div>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Address">
+    <p>
+        How can I use a form of different component in mat-stepper?
+        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+  </mat-step>
+  <mat-step label="Billing">
+    <p>
+        How can I use a form of different component in mat-stepper?
+        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>  </mat-step>
+  <mat-step label="Confirm">
+    <p>
+        How can I use a form of different component in mat-stepper?
+        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Previous</button>
+        <button mat-raised-button>Confirm</button>
+      </div>  </mat-step>
+
+</mat-horizontal-stepper> -->
+
+<!-- <mat-tab-group>
     <mat-tab label="Angular">Angular</mat-tab>
     <mat-tab label="React">React</mat-tab>
     <mat-tab label="Node">Node</mat-tab>
-</mat-tab-group>
+</mat-tab-group> -->
 
 <!-- 
 <mat-accordion hideToggle>
