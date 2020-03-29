@@ -10,6 +10,11 @@ export interface Transaction {
   cost: number;
 }
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-root',
@@ -34,10 +39,17 @@ export class AppComponent implements OnInit {
     {item: 'Swim suit', cost: 15},
   ];
 
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'}
+  ];
+
   /** Gets the total cost of all transactions. */
   getTotalCost() {
     return this.transactions.map(t => t.cost).reduce((acc, value) => acc + value, 0);
   }
+
 
 
 

@@ -16,13 +16,15 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="example-container">
-      <mat-form-field appearance="standard" class="offset-md-1">
+      <mat-form-field appearance="outline" class="offset-md-1">
         <mat-label>Offer Name</mat-label>
         <input matInput>
       </mat-form-field>
-      <mat-form-field appearance="standard" class="offset-md-6">
+      <mat-form-field appearance="outline" class="offset-md-5">
         <mat-label>Date</mat-label>
-        <input matInput>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
     <mat-divider  [inset]="true"></mat-divider>
@@ -32,12 +34,16 @@
 <div class="row">
   <div class="col-md-8 offset-md-2">
     <div class="example-container">
-      <mat-form-field appearance="standard" class="offset-md-1">
+      <mat-form-field appearance="outline" class="offset-md-1">
         <mat-label>Category</mat-label>
-        <input matInput>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
-    <div class="exp-container mat-elevation-z8">
+    <div class="exp-container mat-elevation-z8 offset-md-1">
       <table mat-table [dataSource]="transactions">
         <!-- Item Column -->
         <ng-container matColumnDef="item">
