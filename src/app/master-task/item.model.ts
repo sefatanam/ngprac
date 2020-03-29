@@ -4,5 +4,6 @@ export class Item {
     Name: string;
     Code : string;
     Price:number;
+    Discount:number;
     ItemCatagoryId:number;
 }

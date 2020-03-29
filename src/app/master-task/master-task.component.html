@@ -25,19 +25,49 @@
         <mat-form-field appearance="outline" class="offset-md-1">
           <mat-label>Category</mat-label>
           <mat-select>
-            <mat-option *ngFor="let catagory of catagories" [value]="catagory.Id">
+            <mat-option *ngFor="let catagory of catagories" [value]="catagory.Id"  (click)="updateTable(catagory.Id)">
               {{catagory.Name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="exp-container mat-elevation-z8 offset-md-1">
+        <mat-table #table [dataSource]="dataSource" >
+      
+          <ng-container matColumnDef="Id">
+            <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>   
+          </ng-container>
+      
+          <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              {{element.Name}}
+            </mat-cell>
+          </ng-container>
        
+          <ng-container matColumnDef="Code">
+            <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="Price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Discount">
+            <mat-header-cell *matHeaderCellDef > Discount </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <mat-form-field floatLabel="never">
+                <input matInput placeholder="Name" placeholder="Discount" [value]="element.Discount" [(ngModel)]="element.Discount">
+              </mat-form-field>
+             </mat-cell>     
+          </ng-container>    
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
       </div>
     </div>
-  
-    <div>
-      
-    </div>
-  
-  
+  </div>
+
