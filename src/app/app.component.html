@@ -10,49 +10,6 @@
 
 
 
-<form>
-
-
-
-  <mat-form-field appearance="outline">
-    <mat-label>Name</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Topic</mat-label>
-    <mat-select>
-      <mat-option value="">---Select---</mat-option>
-      <mat-option value="Angular">Angular</mat-option>
-      <mat-option value="React">React</mat-option>
-      <mat-option value="Vue">Vue</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Auto Complete</mat-label>
-    <input type="text" matInput [matAutocomplete]="auto" [formControl]="myForm">
-    <!-- More concern about this => [displayWith]="displayOption" function sign must be avoid  -->
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filterOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput [matDatepicker]="datePicker">
-    <mat-datepicker-toggle [for]="datePicker" matSuffix></mat-datepicker-toggle>
-    <mat-datepicker #datePicker startView="multi-year"></mat-datepicker>
-  </mat-form-field>
-  
- 
-</form>
-
-<div>
-    <button mat-button (click)="OpenSnackbar('Hello, it worked !','Close')">Show Snack </button>
-</div>
-
-<div>
-    <button mat-button (click)="OpenCustomSnackBarComponent('Hello, Custom worked !','Close')">Show Snack </button>
-</div>
 
 <!-- <mat-vertical-stepper>
     <mat-step label="Info">
