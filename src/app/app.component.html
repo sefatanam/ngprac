@@ -6,176 +6,61 @@
     <span class="span">Repeat</span>
   </div>
 </mat-toolbar>
+<br />
+<br />
+<div class="row" style="justify-content: center;">
+  <h4>Master Detail</h4>
+</div>
 
 
-
-
-
-<!-- <mat-vertical-stepper>
-    <mat-step label="Info">
-      <p>
-        How can I use a form of different component in mat-stepper?
-        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-      </p>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </mat-step>
-    <mat-step label="Address">
-      <p>
-          How can I use a form of different component in mat-stepper?
-          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-        </p>
-        <div>
-          <button mat-button matStepperPrevious>Previous</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-    </mat-step>
-    <mat-step label="Billing">
-      <p>
-          How can I use a form of different component in mat-stepper?
-          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-        </p>
-        <div>
-          <button mat-button matStepperPrevious>Previous</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>  </mat-step>
-    <mat-step label="Confirm">
-      <p>
-          How can I use a form of different component in mat-stepper?
-          For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-        </p>
-        <div>
-          <button mat-button matStepperPrevious>Previous</button>
-          <button mat-raised-button>Confirm</button>
-        </div>  </mat-step>
-  
-  </mat-vertical-stepper> -->
-
-<!-- <mat-horizontal-stepper>
-  <mat-step label="Info">
-    <p>
-      How can I use a form of different component in mat-stepper?
-      For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-    </p>
-    <div>
-      <button mat-button matStepperNext>Next</button>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="example-container">
+      <mat-form-field appearance="standard" class="offset-md-1">
+        <mat-label>Offer Name</mat-label>
+        <input matInput>
+      </mat-form-field>
+      <mat-form-field appearance="standard" class="offset-md-6">
+        <mat-label>Date</mat-label>
+        <input matInput>
+      </mat-form-field>
     </div>
-  </mat-step>
-  <mat-step label="Address">
-    <p>
-        How can I use a form of different component in mat-stepper?
-        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-      </p>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-  </mat-step>
-  <mat-step label="Billing">
-    <p>
-        How can I use a form of different component in mat-stepper?
-        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-      </p>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>  </mat-step>
-  <mat-step label="Confirm">
-    <p>
-        How can I use a form of different component in mat-stepper?
-        For eg: Registration component uses mat stepper that has several steps step1,step2.step3 etc ...
-      </p>
-      <div>
-        <button mat-button matStepperPrevious>Previous</button>
-        <button mat-raised-button>Confirm</button>
-      </div>  </mat-step>
+    <mat-divider  [inset]="true"></mat-divider>
+  </div>
+</div>
 
-</mat-horizontal-stepper> -->
-
-<!-- <mat-tab-group>
-    <mat-tab label="Angular">Angular</mat-tab>
-    <mat-tab label="React">React</mat-tab>
-    <mat-tab label="Node">Node</mat-tab>
-</mat-tab-group> -->
-
-<!-- 
-<mat-accordion hideToggle>
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Hello Quarantiners
-        </mat-panel-title>
-        <mat-panel-description>
-            About 14 Day's 
-        </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is Empty List, Add some course details</p>
-    <mat-action-row>
-        <button mat-raised-button>Add</button>
-    </mat-action-row>
-</mat-expansion-panel>
-
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-        <mat-panel-title>
-            Hello Quarantiners
-        </mat-panel-title>
-        <mat-panel-description>
-            About 14 Day's 
-        </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is Empty List, Add some course details</p>
-    <mat-action-row>
-        <button mat-flat-button> Enroll</button>
-    </mat-action-row>
-</mat-expansion-panel>
-</mat-accordion> -->
-
-<!-- 
-<mat-menu #AppMenu="matMenu">
-  <button mat-menu-item [matMenuTriggerFor]="SubMenu "> Menu 1 </button>
-  <button mat-menu-item> Menu 2 </button>
-</mat-menu>
-<button mat-raised-button [matMenuTriggerFor]="AppMenu">Menu</button>
-
-<mat-menu #SubMenu="matMenu">
-  <button mat-menu-item>Sub Menu 1 </button>
-  <button mat-menu-item>Sub Menu 2 </button>
-</mat-menu>
-<mat-menu #lazyMenu="matMenu">
-  <ng-template matMenuContent let-peram="peram">
-    <button mat-menu-item >Settings</button>
-    <button mat-menu-item >Log Out {{peram}}</button>
-  </ng-template>
-</mat-menu>
-
-<button mat-raised-button [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{peram:'Sefat'}">Sefat</button>
-<button mat-raised-button [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{peram:'Kasem'}">Kssem</button>
- -->
-
-
-
-<!-- <mat-sidenav-container class="mat-sidenav-container">
-    <mat-sidenav class="mat-sidenav" #SideNav [(opened)]="opened" mode='side'>Main Header
-        <button mat-raised-button (click)="opened=false">Close </button>
-    </mat-sidenav>
-    <mat-sidenav-content class="mat-sidenav-content">Sub Header
-        <button mat-raised-button (click)="opened=!opened">Open Button</button>
-        <button mat-raised-button (click)='SideNav.open()'>Open</button>
-        <button mat-raised-button (click)='SideNav.close()'>Close </button>
-    </mat-sidenav-content>
-</mat-sidenav-container> -->
-
-
-
-
-<!-- <div class="row"> -->
-<!-- <mat-progress-spinner value='62'></mat-progress-spinner> -->
-<!-- <div class="col-md-5 offset-md-3">
-    <br>
-    <mat-spinner *ngIf="showSpinner" color="warn"></mat-spinner>
-    <button mat-raised-button (click)="loadData()"> Load Data</button>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="example-container">
+      <mat-form-field appearance="standard" class="offset-md-1">
+        <mat-label>Category</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div class="exp-container mat-elevation-z8">
+      <table mat-table [dataSource]="transactions">
+        <!-- Item Column -->
+        <ng-container matColumnDef="item">
+          <th mat-header-cell *matHeaderCellDef> Item </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
+          <td mat-footer-cell *matFooterCellDef> Total </td>
+        </ng-container>
+    
+        <!-- Cost Column -->
+        <ng-container matColumnDef="cost">
+          <th mat-header-cell *matHeaderCellDef> Cost </th>
+          <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+          <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+      </table>
+    </div>
   </div>
 
-</div> -->
+  <div>
+    
+  </div>
+
