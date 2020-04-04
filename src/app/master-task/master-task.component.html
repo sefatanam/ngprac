@@ -15,7 +15,6 @@
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
-      <mat-divider  [inset]="true"></mat-divider>
     </div>
   </div>
   
@@ -25,18 +24,24 @@
         <mat-form-field appearance="outline" class="offset-md-1">
           <mat-label>Category</mat-label>
           <mat-select>
-            <mat-option *ngFor="let catagory of catagories" [value]="catagory.Id"  (click)="updateTable(catagory.Id)">
+            <mat-option *ngFor="let catagory of catagories" [value]="catagory.Id" #mySelect (click)="updateTableOnChange(mySelect.value)" >
               {{catagory.Name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="exp-container mat-elevation-z8 offset-md-1">
-        <mat-table #table [dataSource]="dataSource" >
+      <div class="cont-table mat-elevation-z8 offset-md-1" >
+        <mat-table #table [(dataSource)]="tableViewDataSource">
       
+          <div *ngIf="dataSource==null">
+            <h4>No Catagory is selected !</h4>
+          </div>
           <ng-container matColumnDef="Id">
             <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>   
+            <mat-footer-cell *matFooterCellDef class="bold mobile-hide">
+              <span class="mobile-value">Total Discount (%)</span>
+            </mat-footer-cell>
           </ng-container>
       
           <ng-container matColumnDef="Name">
@@ -44,30 +49,70 @@
             <mat-cell *matCellDef="let element">
               {{element.Name}}
             </mat-cell>
+            <mat-footer-cell *matFooterCellDef class="mobile-hide"></mat-footer-cell>
           </ng-container>
        
           <ng-container matColumnDef="Code">
             <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef class="mobile-hide"></mat-footer-cell>
           </ng-container>
           
           <ng-container matColumnDef="Price">
             <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+            <mat-footer-cell *matFooterCellDef class="mobile-hide"></mat-footer-cell>
           </ng-container>
+          <ng-container matColumnDef="Note">
+            <mat-header-cell *matHeaderCellDef > Note </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <mat-form-field floatLabel="never">
+                <input matInput placeholder="Name" placeholder="Note" [value]="element.Note" [(ngModel)]="element.Note">
+              </mat-form-field>
+             </mat-cell>               
+             <!-- <mat-footer-cell *matFooterCellDef > {{getTotalCost()|currency}} </mat-footer-cell>    -->
+             <mat-footer-cell *matFooterCellDef ></mat-footer-cell>   
+            </ng-container>
           <ng-container matColumnDef="Discount">
             <mat-header-cell *matHeaderCellDef > Discount </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
                 <mat-form-field floatLabel="never">
                 <input matInput placeholder="Name" placeholder="Discount" [value]="element.Discount" [(ngModel)]="element.Discount">
               </mat-form-field>
-             </mat-cell>     
-          </ng-container>    
+             </mat-cell>               
+             <!-- <mat-footer-cell *matFooterCellDef > {{getTotalCost()|currency}} </mat-footer-cell>    -->
+             <mat-footer-cell *matFooterCellDef > {{00 | number}} </mat-footer-cell>   
+            </ng-container>
+            
+            <ng-container matColumnDef="PriceAfterDiscount">
+              <mat-header-cell *matHeaderCellDef > Price After Discount </mat-header-cell>
+              <mat-cell *matCellDef="let element"> 
+                  {{element.PriceAfterDiscount}}
+               </mat-cell>               
+               <!-- <mat-footer-cell *matFooterCellDef > {{getTotalCost()|currency}} </mat-footer-cell>    -->
+               <mat-footer-cell *matFooterCellDef > {{00 | number}} </mat-footer-cell>   
+              </ng-container>
+              
 
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-footer-row *matFooterRowDef="displayedColumns;sticky: true" class="nettoRow"></mat-footer-row>
+          -->
+
+          <mat-header-row *matHeaderRowDef="tableViewDisplayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: tableViewDisplayedColumns;"></mat-row>
+          <mat-footer-row *matFooterRowDef="tableViewDisplayedColumns;sticky: true" class="nettoRow"></mat-footer-row>
+         
         </mat-table>
       </div>
+    
     </div>
+
+<div class="col-md-1 offset-md-9">
+  <br/>
+  <button mat-raised-button color="primary" >Save data</button>
+
+</div>   
+
   </div>
 
